@@ -85,8 +85,10 @@ export class FlightEditComponent implements OnChanges, OnInit {
   save(): void {
     this.message = 'Is saving ...';
 
+    const flightToSave: Flight = this.editForm.value;
+
     this.flightService
-      .save(this.editForm.value)
+      .save(flightToSave)
       .pipe(delay(3000))
       .subscribe({
         next: (flight) => {
