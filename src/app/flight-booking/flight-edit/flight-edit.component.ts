@@ -110,7 +110,7 @@ export class FlightEditComponent implements OnChanges, OnInit {
           setTimeout(() => this.router.navigate(['/flight-search']), 3000);
         },
         error: (errResponse) => {
-          console.error('Error', errResponse);
+          console.error(errResponse);
           this.message = 'Error saving!';
         }
       });
@@ -132,7 +132,8 @@ export class FlightEditComponent implements OnChanges, OnInit {
         this.message = 'Success loading!';
         this.patchFormValue();
       },
-      error: (err) => {
+      error: (errResponse) => {
+        console.error(errResponse);
         this.message = 'Error Loading!';
       }
     });
